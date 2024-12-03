@@ -1,15 +1,22 @@
 package com.example.demo.model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.UUID;
 
-@Getter
-@Document
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Competition {
+
     @Id
     private String id;
 
@@ -20,50 +27,6 @@ public class Competition {
 
     private double distance;
 
-    private Competition(String competitionName, String cordGPS, Date startDate, double distance) {
 
-        this.competitionName = competitionName;
-        this.cordGPS = cordGPS;
-        this.startDate = startDate;
-        this.distance = distance;
 
-    }
-
-    public Competition() {}
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public void setCompetitionName(String competitionName) {
-        this.competitionName = competitionName;
-    }
-
-    public void setCordGPS(String cordGPS) {
-        this.cordGPS = cordGPS;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-    public String getId() {
-        return id;
-    }
-    public String getCompetitionName() {
-        return competitionName;
-    }
-    public String getCordGPS() {
-        return cordGPS;
-    }
-    public Date getStartDate() {
-        return startDate;
-    }
-    public double getDistance() {
-        return distance;
-    }
 }
