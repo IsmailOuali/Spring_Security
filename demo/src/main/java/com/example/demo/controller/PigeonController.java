@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.model.Pigeon;
-import com.example.demo.service.impl.PigeonService;
+import com.example.demo.service.PigeonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

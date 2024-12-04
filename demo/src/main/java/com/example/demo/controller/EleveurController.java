@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 
 import com.example.demo.model.Eleveur;
-import com.example.demo.service.impl.EleveurService;
+import com.example.demo.service.EleveurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

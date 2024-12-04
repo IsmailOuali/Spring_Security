@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.User;
+import com.example.demo.service.UserService;
 import com.example.demo.service.UserServiceInterface;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class UserController {
 
-    private final UserServiceInterface service;
+    private final UserService service;
 
     @PostMapping("/sign-up")
     public ResponseEntity<?> signUpUser(@RequestBody User user){
