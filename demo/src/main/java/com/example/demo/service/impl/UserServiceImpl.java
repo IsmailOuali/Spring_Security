@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
 
-    private PasswordEncoder passwordEncoder;
+        private PasswordEncoder passwordEncoder;
 
     @Override
     public User insertUser(User user){
