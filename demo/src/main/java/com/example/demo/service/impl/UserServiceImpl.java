@@ -1,29 +1,38 @@
 package com.example.demo.service.impl;
 
 import com.example.demo.model.User;
-import com.example.demo.repository.UserRepoInterface;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
-    private final UserRepoInterface userRepo;
+    private final UserRepository userRepository;
+
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public User insertUser(User user){
-        userRepo.save(user);
-        return user;
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new UsernameAlreadyExistsException("Username already exists");
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(Set.of("ROLE_USER")); // Default role
+        return userRepository.save(user);
     }
 
     @Override
     public boolean login(String email,String password) {
         User usr = userRepo.findByEmail(email);
-        return email.equals(usr.getEmail()) && password.equals(usr.getPassword());
+        return email.equals(usr.getEmail()  ) && password.equals(usr.getPassword());
     }
 
     @Override
