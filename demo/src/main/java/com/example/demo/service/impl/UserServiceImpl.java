@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User insertUser(User user){
         if (userRepository.existsByEmail(user.getEmail())) {
-            throw new UsernameAlreadyExistsException("Username already exists");
+            throw new EmailAlreadyExistsException("Username already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Set.of("ROLE_USER"));
