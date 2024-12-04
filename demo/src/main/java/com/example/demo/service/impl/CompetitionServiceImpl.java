@@ -2,13 +2,14 @@ package com.example.demo.service.impl;
 
 import com.example.demo.model.Competition;
 import com.example.demo.repository.CompetitionRepository;
+import com.example.demo.service.CompetitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CompetitionServiceImpl {
+public class CompetitionServiceImpl implements CompetitionService {
     @Autowired
     private CompetitionRepository competitionRepository;
 
