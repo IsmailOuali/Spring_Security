@@ -1,15 +1,4 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/pigeon
-    username: postgres
-    password:
-    driver-class-name: org.postgresql.Driver
+  profiles:
+    active: dev
 
-  jpa:
-    hibernate:
-      ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
