@@ -31,18 +31,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(String email,String password) {
-        User usr = userRepo.findByEmail(email);
+        User usr = userRepository.findByEmail(email);
         return email.equals(usr.getEmail()  ) && password.equals(usr.getPassword());
     }
 
     @Override
     public void deleteUser(User user) {
-        userRepo.delete(user);
+        userRepository.delete(user);
     }
     @Override
     public User findByEmail(String email){
-        System.out.println("here : "+ userRepo.findById(email));
-        return userRepo.findById(email).orElseThrow(()-> new RuntimeException("not found"));
+        System.out.println("here : "+ userRepository.findById(email));
+        return userRepository.findById(email).orElseThrow(()-> new RuntimeException("not found"));
     }
 
     @Override
