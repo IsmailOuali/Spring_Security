@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
             throw new UsernameAlreadyExistsException("Username already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setRoles(Set.of("ROLE_USER")); // Default role
+        user.setRoles(Set.of("ROLE_USER"));
         return userRepository.save(user);
     }
 
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        return userRepo.findAll();
+        return userRepository.findAll();
     }
 
 
